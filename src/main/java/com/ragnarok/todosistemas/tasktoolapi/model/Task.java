@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.swing.*;
 import java.time.LocalDate;
 
 @Entity
@@ -18,7 +19,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "task_name",length = 60)
+    @Column(name = "task_name",length = 20)
     private String name;
 
     @Column(name = "task_description",length = 200)
@@ -27,8 +28,8 @@ public class Task {
     @Column(name = "task_state", length = 1)
     private String state;
 
-    @Column(name = "task_assigned_employee")
-    private String employee;
+    @Column(name = "task_employee")
+    private Long employee;
 
     @Column(name = "task_creation_date")
     private LocalDate creationDate;

@@ -3,6 +3,7 @@ package com.ragnarok.todosistemas.tasktoolapi.controller;
 import com.ragnarok.todosistemas.tasktoolapi.model.Task;
 import com.ragnarok.todosistemas.tasktoolapi.services.TaskServices;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,15 +16,16 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TaskController {
 
+    @Autowired
     private final TaskServices taskServices;
 
     @GetMapping()
-    public List<Task> createTask() {
+    public List<Task> getTaskList() {
         return taskServices.getTaskList();
     }
 
     @PostMapping
-    public ResponseEntity createTask(@RequestBody Task task) throws ParseException {
+    public ResponseEntity createTask(@RequestBody Task task) {
         return new ResponseEntity(taskServices.addTask(task), HttpStatus.CREATED);
     }
 

@@ -4,6 +4,7 @@ import com.ragnarok.todosistemas.tasktoolapi.model.Task;
 import com.ragnarok.todosistemas.tasktoolapi.repository.TaskRepository;
 import com.ragnarok.todosistemas.tasktoolapi.services.TaskServices;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -14,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class TaskServicesImpl implements TaskServices {
 
+    @Autowired
     private final TaskRepository taskRepository;
 
     @Override
@@ -22,7 +24,7 @@ public class TaskServicesImpl implements TaskServices {
     }
 
     @Override
-    public Task addTask(Task task) throws ParseException {
+    public Task addTask(Task task) {
         task.setCreationDate(LocalDate.now());
         return taskRepository.save(task);
     }
