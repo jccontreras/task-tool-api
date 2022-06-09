@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "tasks")
@@ -28,4 +29,10 @@ public class Task {
 
     @Column(name = "task_assigned_employee")
     private String employee;
+
+    @Column(name = "task_creation_date")
+    private Date creationDate;
+
+    @Column(name = "task_do_date")
+    private Date toDoDate;
 }
