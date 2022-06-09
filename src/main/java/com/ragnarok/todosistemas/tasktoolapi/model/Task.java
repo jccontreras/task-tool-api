@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "tasks")
@@ -31,8 +31,8 @@ public class Task {
     private String employee;
 
     @Column(name = "task_creation_date")
-    private Date creationDate;
+    private LocalDate creationDate;
 
     @Column(name = "task_do_date")
-    private Date toDoDate;
+    private LocalDate toDoDate;
 }

@@ -2,6 +2,7 @@ package com.ragnarok.todosistemas.tasktoolapi.services;
 
 import com.ragnarok.todosistemas.tasktoolapi.model.Task;
 
+import java.text.ParseException;
 import java.util.List;
 
 public interface TaskServices {
@@ -10,7 +11,7 @@ public interface TaskServices {
     List<Task> getTaskList();
 
     //Add Task List
-    Task addTask(Task task);
+    Task addTask(Task task) throws ParseException;
 
     //Update Task List
     Task updateTask(Task task);
