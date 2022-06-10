@@ -13,9 +13,9 @@ public interface TaskServices {
     //Add Task List
     Task addTask(Task task);
 
-    //Update Task List
+    //Update Task
     Task updateTask(Task task);
 
-    //Get Task List
+    //Delete Task
     boolean deleteTask(Long id);
 }

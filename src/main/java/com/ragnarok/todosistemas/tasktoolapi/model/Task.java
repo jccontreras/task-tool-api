@@ -19,21 +19,21 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "task_name",length = 20)
+    @Column(name = "task_name",length = 20, nullable = false)
     private String name;
 
-    @Column(name = "task_description",length = 200)
+    @Column(name = "task_description",length = 200, nullable = false)
     private String description;
 
-    @Column(name = "task_state", length = 1)
+    @Column(name = "task_state", length = 1, nullable = false)
     private String state;
 
-    @Column(name = "task_employee")
+    @Column(name = "task_employee", nullable = false)
     private Long employee;
 
     @Column(name = "task_creation_date")
     private LocalDate creationDate;
 
-    @Column(name = "task_do_date")
+    @Column(name = "task_do_date", nullable = false)
     private LocalDate toDoDate;
 }

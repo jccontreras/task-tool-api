@@ -1,5 +1,6 @@
 package com.ragnarok.todosistemas.tasktoolapi.services.impl;
 
+import com.ragnarok.todosistemas.tasktoolapi.model.Task;
 import com.ragnarok.todosistemas.tasktoolapi.model.User;
 import com.ragnarok.todosistemas.tasktoolapi.repository.UserRepository;
 import com.ragnarok.todosistemas.tasktoolapi.services.UserServices;
@@ -29,5 +30,26 @@ public class UserServicesImpl implements UserServices {
     @Override
     public User addUser(User user) {
         return userRepository.save(user);
+    }
+
+    @Override
+    public User updateUser(User user) {
+        User searchuser = userRepository.findById(user.getId()).get();
+        searchuser.setName(user.getName());
+        searchuser.setEmployeeId(user.getEmployeeId());
+        searchuser.setDni(user.getDni());
+        searchuser.setEmail(user.getEmail());
+        searchuser.setContactNumber(user.getContactNumber());
+        return userRepository.save(searchuser);
+    }
+
+    @Override
+    public boolean deleteUser(Long id) {
+        try {
+            userRepository.deleteById(id);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
     }
 }
